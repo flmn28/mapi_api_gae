@@ -1,9 +1,11 @@
 package main
 
 import (
-	"github.com/flmn28/mapic_api/handler"
+	"google.golang.org/appengine"
+	"handler"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	"net/http"
 )
 
 func main() {
@@ -28,5 +30,6 @@ func main() {
 	r.Use(middleware.JWT([]byte("secret")))
 	r.GET("", handler.Restricted)
 
-	e.Logger.Fatal(e.Start(":8080"))
+	http.Handle("/", e)
+	appengine.Main()
 }

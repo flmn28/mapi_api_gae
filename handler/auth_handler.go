@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/flmn28/mapic_api/domain"
+	"domain"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
 	"net/http"
